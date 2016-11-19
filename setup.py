@@ -27,11 +27,13 @@ with open(os.path.join(here, 'VERSION')) as f:
 
 setup(
     name='mathcontentconverter',
+    packages = ['mathcontentconverter'],
     version=version,
     description='A tool for converting structured mathematical content to HTML,\
      in particular converting latex to katex or images',
     long_description=long_description,
     url='https://github.com/nathanbegbie/mathcontentconverter',
+    download_url = 'https://github.com/nathanbegbie/mathcontentconverter/tarball/0.1',
     author='Nathan Begbie',
     author_email='n8ivedev@gmail.com',
     license='MIT',
@@ -46,7 +48,6 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     keywords='math latex kated equations',
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     # List run-time dependencies here.  These will be installed by pip when
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
