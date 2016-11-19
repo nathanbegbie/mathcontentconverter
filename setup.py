@@ -38,7 +38,6 @@ setup(
     author_email='n8ivedev@gmail.com',
     license='MIT',
     classifiers=[
-        'Topic :: Software Development :: Math Tools',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
