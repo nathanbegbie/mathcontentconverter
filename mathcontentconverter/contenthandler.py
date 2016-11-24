@@ -106,16 +106,9 @@ class ContentHandler(object):
         else:
             for block in list_of_blocks[1:]:
                 if "inline" in block and block["inline"] is True:
-                    # print("It's inline")
-                    # print(line)
                     line.append(block)
-                    # print(line)
-                    # print("---------")
                 else:
-                    # print("It's not inline!")
-                    # add line to lines
                     lines.append(line)
-                    # start a new line
                     line = [block]
         # case where last line is True,
         if line != []:
