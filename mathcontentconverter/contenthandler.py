@@ -5,6 +5,8 @@ import shutil
 import uuid
 import os
 
+from wand.image import Image
+
 
 class ContentHandler(object):
     """returns a string of HTML with the relevant content."""
@@ -15,7 +17,8 @@ class ContentHandler(object):
                  reference_url=False,
                  katex_conversion_url=False,
                  create_images=True,
-                 reuse_images=True):
+                 reuse_images=True,
+                 optimise_images=True):
         """Constructor for ContentHandler."""
         # Q: Should the file paths be relative?
         # A: Yes, otherwise the file src is not going to mean much.
@@ -39,6 +42,7 @@ class ContentHandler(object):
             raise Exception("katex_conversion_url is not specified")
         self.create_images = create_images
         self.reuse_images = reuse_images
+        self.optimise_images = optimise_images
         self.equation_image_references = {}
 
     def create_katex(self, latex_string):
@@ -85,7 +89,14 @@ class ContentHandler(object):
         # print(dest_file)
         shutil.copyfile(src_file, dest_file)
 
-        # TODO: optimise the image
+        # optimise the image
+        if self.optimise_images:
+            with Image(filename=dest_file) as img:
+                width = img.width
+                height = img.height
+                if width > 300:
+                    img.resize(300, round(height*(300/width)))
+                    img.save(filename=dest_file)
 
         # create the image tag and return it
         return "<img src='{0}' alt='{1}' >".format(

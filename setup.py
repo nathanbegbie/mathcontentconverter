@@ -33,7 +33,7 @@ setup(
      in particular converting latex to katex or images',
     long_description=long_description,
     url='https://github.com/nathanbegbie/mathcontentconverter',
-    download_url = 'https://github.com/nathanbegbie/mathcontentconverter/tarball/0.1',
+    download_url = 'https://github.com/nathanbegbie/mathcontentconverter/tarball/0.3',
     author='Nathan Begbie',
     author_email='n8ivedev@gmail.com',
     license='MIT',
